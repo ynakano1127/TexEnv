@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  tex_builder:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./tex:/tex
+    working_dir: /tex
+    command: /bin/bash

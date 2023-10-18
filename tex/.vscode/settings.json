@@ -1,0 +1,137 @@
+{
+    "[latex]": {
+      "editor.wordWrap": "on",
+      "editor.wordSeparators": "./\\()\"'-:,.;<>~!@#$%^&*|+=[]{}`~?。．、，（）「」『』［］｛｝《》てにをはがのともへでや ",
+      "editor.tabSize": 2,
+      "editor.insertSpaces": true,
+      "editor.detectIndentation": false,
+      "editor.suggestSelection": "recentlyUsedByPrefix",
+      "editor.suggest.snippetsPreventQuickSuggestions": false,
+      "editor.quickSuggestions": {
+        "other": true,
+        "comments": false,
+        "strings": false
+      },
+      "editor.bracketPairColorization.enabled": true,
+      "editor.unicodeHighlight.invisibleCharacters": true,
+      "editor.unicodeHighlight.allowedCharacters": {
+        "，": true,
+        "．": true,
+        "！": true,
+        "？": true,
+        "［": true,
+        "］": true,
+        "｛": true,
+        "｝": true,
+        "＜": true,
+        "＞": true,
+      },
+      // "files.trimTrailingWhitespace": true,
+      "editor.stickyScroll.enabled": true,
+    },
+    // tools and recipes
+    "latex-workshop.latex.tools": [
+      {
+        "name": "uplatex2pdf",
+        "command": "ptex2pdf",
+        "args": [
+          "-u",
+          "-l",
+          "-ot",
+          "-kanji=utf8",
+          "-synctex=1",
+          "-interaction=nonstopmode",
+          "-file-line-error",
+          "%DOC%"
+        ]
+      },
+      {
+        "name": "upbibtex",
+        "command": "upbibtex",
+        "args": [
+          "-kanji=utf8",
+          "%DOCFILE%"
+        ]
+      }
+    ],
+    "latex-workshop.latex.recipes": [
+      {
+        "name": "1 times Build (ptex2pdf)",
+        "tools": [
+          "uplatex2pdf",
+        ]
+      },
+      {
+        "name": "2 times Build (ptex2pdf *2)",
+        "tools": [
+          "uplatex2pdf",
+          "uplatex2pdf",
+        ]
+      },
+      {
+        "name": "3 times Build (ptex2pdf *3)",
+        "tools": [
+          "uplatex2pdf",
+          "uplatex2pdf",
+          "uplatex2pdf",
+        ]
+      },
+      {
+        "name": "All Build (ptex2pdf → upbibtex → ptex2pdf *3)",
+        "tools": [
+          "uplatex2pdf",
+          "upbibtex",
+          "uplatex2pdf",
+          "uplatex2pdf",
+          "uplatex2pdf",
+        ]
+      }
+    ],
+    // 自動的にタイプセットしない
+    "latex-workshop.latex.autoBuild.run": "never",
+    "latex-workshop.latex.autoBuild.cleanAndRetry.enabled": true,
+    // タイプセットエラー時にファイルを削除する
+    "latex-workshop.latex.autoClean.run": "onFailed",
+    "latex-workshop.latex.clean.method": "glob",
+    "latex-workshop.latex.clean.fileTypes": [
+      "%DOCFILE%.acn",
+      "%DOCFILE%.acr",
+      "%DOCFILE%.alg",
+      "%DOCFILE%.aux",
+      "%DOCFILE%.bbl",
+      "%DOCFILE%.blg",
+      "%DOCFILE%.dvi",
+      "%DOCFILE%.fdb_latexmk",
+      "%DOCFILE%.fls",
+      "%DOCFILE%.glg",
+      "%DOCFILE%.glo",
+      "%DOCFILE%.gls",
+      "%DOCFILE%.idx",
+      "%DOCFILE%.ind",
+      "%DOCFILE%.ist",
+      "%DOCFILE%.lof",
+      "%DOCFILE%.lot",
+      "%DOCFILE%.nav",
+      "%DOCFILE%.out",
+      "%DOCFILE%.snm",
+      "%DOCFILE%.synctex.gz",
+      "%DOCFILE%.synctex.gz(busy)",
+      "%DOCFILE%.synctex(busy)",
+      "%DOCFILE%.toc",
+      "%DOCFILE%.vrb",
+      "%DOCFILE%_minted%DOCFILE%",
+      // "__latexindent_temp.tex"
+    ],
+    // インテリセンスの有効化
+    "latex-workshop.intellisense.package.enabled": true,
+    // SyncTeX の設定
+    "latex-workshop.view.pdf.internal.synctex.keybinding": "ctrl-click",
+    "latex-workshop.synctex.afterBuild.enabled": true,
+    "latex-workshop.synctex.path": "synctex",
+    "latex-workshop.synctex.synctexjs.enabled": true,
+    // PDF ビューワをタブに設定
+    "latex-workshop.view.pdf.viewer": "tab",
+    "latex-workshop.view.pdf.zoom": "page-width",
+    // "latex-workshop.view.pdf.color.light.pageColorsBackground": "#204020",  // Blackboard color
+    // "latex-workshop.view.pdf.color.dark.pageColorsBackground": "#204020",  // Blackboard color
+}
